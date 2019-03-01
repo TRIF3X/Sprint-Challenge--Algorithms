@@ -69,6 +69,29 @@ O(n)
 ----------------------------------------------------------------------------------
 
 
+n = ammt of stories in building
+f = floor of building
 
+We are trying to find f, the floor at which eggs will not be broken
+
+n = 30
+egg = broken
+while egg == broken :
+take n and divide it by 2
+attempt to drop egg at floor 15
+if egg is broken:
+n = current floor
+take current floor and divide by 2
+repeat
+else:
+we found f the floor at which eggs will not be broken
+egg = not_broken
+
+30/2 = broken
+15/2 = broken
+7 = not_broken
+return 7
+
+My function would run in O(log(n)), it's a similar approach to a binary search as we're constantly chopping our n in half to find the spot at which the egg won't break effectively eliminating a large portion of our floors at once.
 
 
