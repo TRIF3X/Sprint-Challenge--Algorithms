@@ -37,6 +37,13 @@ b)  sum = 0
 
 The time complexity of this problem is quadratic time
 
+n = 1 : 10 steps
+n = 2 : 13 steps
+n = 3 : 19 steps
+n = 4 : 28 steps
+n = 5 : 70 steps
+
+As the input n increased the number of operations greatly increased
 
 O(n**2)
 
