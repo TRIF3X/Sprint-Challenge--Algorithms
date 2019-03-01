@@ -104,21 +104,25 @@ class SortingRobot:
         # set the robots light to on
         self.set_light_on()
         # while light is on we will sort
-        while self.light_is_on == True:
+        while self.light_is_on():
             # turn the light off as a flag for when we've finished our sorting
             self.set_light_off()
-            self.swap_item()
             while self.can_move_right():
+                self.swap_item()
                 self.move_right()
-                self.compare_item()
-                if self.compare_item == -1:
+                if self.compare_item() > 0:
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
+                    self.move_right()
                     self.set_light_on()
                 else:
+                    self.move_left()
+                    self.swap_item()
                     self.move_right()
-        self.set_light_off()
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
 
 
 if __name__ == "__main__":
