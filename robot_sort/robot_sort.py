@@ -107,21 +107,37 @@ class SortingRobot:
         while self.light_is_on():
             # turn the light off as a flag for when we've finished our sorting
             self.set_light_off()
+            # while the robot can move right
             while self.can_move_right():
+                # swap the current item
                 self.swap_item()
+                # move right once
                 self.move_right()
+                # compare the item if the item held is greater then the item in front
                 if self.compare_item() > 0:
+                    # swap the held item
                     self.swap_item()
+                    # move left one
                     self.move_left()
+                    # swap the item again
                     self.swap_item()
+                    # move back over to the right
                     self.move_right()
+                    # set our light back on since array isn't sorted
                     self.set_light_on()
+                # if the item held is not greater then the item in front
                 else:
+                    # move back once
                     self.move_left()
+                    # swap our item
                     self.swap_item()
+                    # move to the right again
                     self.move_right()
+            # if the light is still on
             if self.light_is_on():
+                # while we can move left
                 while self.can_move_left():
+                    # move to the left
                     self.move_left()
 
 
