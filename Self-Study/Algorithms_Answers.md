@@ -1,68 +1,97 @@
-a) O(n) - linear time because as I would increase the value of n, the amount of steps needed for the while loop would increase. For example if I were to use 2 we would loop through twice but if I were to use 3 we had to go through 3 times.
+a)  a = 0                                           O(1)
+    while (a < n * n * n):                          O(n)
+      a = a + n * n                                 O(1)
 
-n = 2
-a = 0
 
-while (0 < 8)
+if n = 1
+while 0 < 1:
+a = 1
+
+loops ends after one run
+
+if n = 2
+while 0 < 8
 a = 0 + 4
-
-while (4 < 8)
+while 4<8
 a = 4 + 4
 
-2 loops through before the while loop would stop
+loop ends after two runs
 
-if we used 3 though:
-n = 3
-a = 0
+The time complexity of this problem is linear time because as n increases so does the number of operations
 
-while (0<27)
-a = 0+9
-
-while (9<27)
-a = 9 + 9
-
-while (18<27)
-a = 18 + 9
-
-3 loops through before the while loop would stop
-
+O(n)
 
 ---------------------------------------------------------------------------
 
-b)O(n^2) - quadratic time because as n increases the number of operations increases as a function of the input size n
+b)  sum = 0                                           
 
-n = 2, would perform 13 steps
-n = 3, would perform 19 steps
-n = 4, would perform 28 steps
-n = 5, would perform 70 steps
+    for i in range(n):                                 
+      i += 1
+      for j in range(i + 1, n):
+        j += 1
+        for k in range(j + 1, n):
+          k += 1
+          for l in range(k + 1, 10 + k):
+            l += 1
+            sum += 1
 
-As n increases the number of steps greatly increases 
+The time complexity of this problem is quadratic time
 
+n = 1 : 10 steps
+n = 2 : 13 steps
+n = 3 : 19 steps
+n = 4 : 28 steps
+n = 5 : 70 steps
+
+As the input n increased the number of operations greatly increased
+
+O(n**2)
 
 ---------------------------------------------------------------------------------
 
-c)O(2^n) - exponential time because the function will call itself until it recursion has happened n amount of times.
+c)  def bunnieEars(bunnies):
+      if bunnies == 0:
+        return 0
+
+      return 2 + bunnyEars(bunnies-1)
+
+The time complexity is O(n) because bunnies is decremented n-1 for every pass until we hit 0 then we will return
+
+if n = 5
+return 2 + bunnyears(5 - 1)
+return 2 + bunnyears(4 - 1)
+return 2 + bunnyears(3 - 1)
+return 2 + bunnyears(2 - 1)
+return 2 + bunnyears(1 - 1)
+
+O(n)
 
 ----------------------------------------------------------------------------------
 
-n = # of stories
-egg is broken if floor >= f
-egg is safe if floor < f
+
+n = ammt of stories in building
+f = floor of building
+
+We are trying to find f, the floor at which eggs will not be broken
 
 n = 30
+egg = broken
+while egg == broken :
+take n and divide it by 2
+attempt to drop egg at floor 15
+if egg is broken:
+n = current floor
+take current floor and divide by 2
+repeat
+else:
+we found f the floor at which eggs will not be broken
+egg = not_broken
 
-take 30 / 2 
-if at floor 15 the egg breaks we will split in half again, n is now equal to 8(rounded up)
+30/2 = broken
+15/2 = broken
+7 = not_broken
+return 7
 
-if at floor 8 the egg is safe we can go start to come up, 15 - 8 = 7. Divide the num / 2. We can now move to the 4th floor(rounded up)
-
-if at floor 12 the egg breaks, we can now find the difference between 12 and 8 = 4 and divide by 2. 
-
-If at floor 10 we can go ahead and check 11 which is the last number between 10 and 12
-
-if at floor 11 we break the egg we know floor 10 is the last floor before the egg breaks
-
-Conclusion: This algorithm is very similar to how a binary search would work which would make this function O(o log n ) 
-
+My function would run in O(log(n)), it's a similar approach to a binary search as we're constantly chopping our n in half to find the spot at which the egg won't break effectively eliminating a large portion of our floors at once.
 
 
